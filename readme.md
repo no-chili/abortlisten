@@ -19,3 +19,19 @@ const abort = createCanAbortListener(['click', 'error', 'resize'], (e) => {
 })
 abort() // 同时取消对'click', 'error', 'resize'的监听
 ```
+
+为非 window 对象绑定监听
+
+```js
+import { createCanAbortListener } from 'abortlisten'
+const root = document.getElementById('root')
+const abort = createCanAbortListener(
+	'click',
+	(e) => {
+		// todo something...
+	},
+	{},
+	root
+)
+abort() // 取消对root的'click'事件的监听
+```
